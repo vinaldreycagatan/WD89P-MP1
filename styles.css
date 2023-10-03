@@ -7,7 +7,7 @@ p {
 }
 
 .navbar-collapse {
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .brand-logo {
@@ -53,11 +53,11 @@ p {
 .landing-area {
     background-color: #FFF3E2;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .text-area{
-    padding-top: 50px;
+    padding-top: 10vh;
 }
 
 .your-day-text {
@@ -98,4 +98,102 @@ p {
     to {
       background-position: -200% center;
     }
-  }
+}
+
+.row {
+    margin: 0;
+}
+
+.carousel-item {
+    position: relative;
+    /* display: none; */
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
+    text-align: center;
+}
+
+.image-size {
+    margin-top: 5vh;
+    height: 300px;
+    width: 300px;
+    /* margin-left: 41.71vw; */
+}
+
+.carousel-caption {
+    position: relative;
+    right: 0;
+    margin-top: 5vh;
+    bottom: 1.25rem;
+    left: 0;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #E74646;
+    text-align: center;
+}
+
+h5 {
+    font-family: 'Borel', cursive;
+    font-size: 40px;
+}
+
+.carousel-indicators {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    /* margin-right: 15%; */
+    margin-bottom: 1rem;
+    /* margin-left: 15%; */
+}
+
+.carousel-indicators li, .carousel-indicators [data-bs-target] {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    position: relative;
+    margin: 10px;
+
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    padding: 0;
+    margin-right: 3px;
+    margin-top: 7vh;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    /* background-color: #fff; */
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+}
+
+.carousel-indicators li.active {
+    opacity: 1;
+}
+
+.carousel-indicators img {
+    position: absolute;
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+@media (max-width: 1451px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+}
