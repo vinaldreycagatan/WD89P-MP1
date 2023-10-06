@@ -383,4 +383,12 @@ h5 {
         display: flex;
         margin-left: 20px;
     }
+
+    .details-area {
+        margin-top: 20px;
+    }
+
+    .items {
+        font-size: 25px;
+    }
 }
