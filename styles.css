@@ -1,10 +1,19 @@
+body {
+    background-color: #FFF3E2;
+}
+
 p {
     margin: 0;
 }
 
-.navbar-bg {
-    background-color: #FFF3E2;
+.row {
+    margin: 0;
+    /* border: 1px solid black; */
 }
+
+/* .col-lg-4, .col-lg-8 {
+    border: 1px solid red;
+} */
 
 .navbar-collapse {
     justify-content: space-evenly;
@@ -15,19 +24,21 @@ p {
 }
 
 .nav-container {
-    padding: 0 20vw 0 20vw;
+    padding: 0 15vw 0 15vw;
 }
 
 .btn-book {
     font-family: 'Borel', cursive;
-    font-size: 20px;
+    font-size: 25px;
     padding: 20px 10px 0 10px;
+    width: auto;
+    text-align: center;
 }
 
 .nav-link {
     margin-right: 1.75vw;
     font-family: 'Crimson Text', serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     color: #FA9884;
     text-decoration: none;
@@ -35,10 +46,15 @@ p {
 
 .navbar-nav {
     --bs-nav-link-hover-color: #E74646;
+    padding-left: 32px;
 }
 
 .nav-link:hover, .navbar-nav .nav-link.active {
     color: #E74646;
+}
+
+.btn-div {
+    /* justify-content: space-around; */
 }
 
 .btn-secondary {
@@ -51,9 +67,9 @@ p {
 }
 
 .landing-area {
-    background-color: #FFF3E2;
-    height: 100vh;
-    padding-top: 20px;
+    /* background-color: #FFF3E2;
+    height: 100vh; */
+    padding-top: 8vh;
 }
 
 .text-area{
@@ -62,14 +78,14 @@ p {
 
 .your-day-text {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 150px;
+    font-size: 10vw;
     color: #FA9884;
     /* margin-top: 50px; */
 }
 
 .productive-text {
     font-family: 'Borel', cursive;
-    font-size: 180px;
+    font-size: 12vw;
     color: #FA9884;
     padding-top: 20px;
     height: auto;
@@ -98,10 +114,6 @@ p {
     to {
       background-position: -200% center;
     }
-}
-
-.row {
-    margin: 0;
 }
 
 .carousel-item {
@@ -150,7 +162,7 @@ h5 {
     justify-content: center;
     padding: 0;
     /* margin-right: 15%; */
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     /* margin-left: 15%; */
 }
 
@@ -165,7 +177,7 @@ h5 {
     flex: 0 1 auto;
     padding: 0;
     margin-right: 3px;
-    margin-top: 7vh;
+    /* margin-top: 7vh; */
     margin-left: 3px;
     text-indent: -999px;
     cursor: pointer;
@@ -192,8 +204,172 @@ h5 {
     background-color: transparent;
 }
 
-@media (max-width: 1451px) {
+.card-area {
+    margin-top: 3vh;
+    padding: 0 15vw 0 15vw;
+}
+
+.card {
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    font-family: 'Luckiest Guy', cursive;
+    display: flex;
+    justify-content: center;
+}
+
+.for-as-text {
+    font-family: 'Borel', cursive;
+    font-size: 50px;
+    padding: 3vh 0 0 5vw;
+    color: #FA9884;
+}
+
+.php-kg-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: #E74646;
+    margin-top: 320px;
+}
+
+.content h2 {
+    color: #E74646;
+    font-size: 400px;
+    position: absolute;
+    /* transform: translate(-50%, -50%); */
+    width: auto;
+    height: auto;
+}
+
+.content h2:nth-child(1) {
+    color: #FFE5CA;
+    -webkit-text-stroke: 2px #E74646;
+}
+
+.content h2:nth-child(2) {
+    color: #E74646;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+        clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+        );
+    }
+
+    50% {
+        clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+        );
+    }
+}
+
+.details-area {
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+.items {
+    font-family: 'Borel', cursive;
+    font-size: 35px;
+    padding: 15px 0 0 0;
+    color: #FA9884;
+}
+
+.card {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-body {
+    margin-left: 10vw;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 15%;
+    padding: 0;
+    color: #FA9884;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
+@media (max-width: 720px) {
     .navbar-collapse {
         text-align: center;
+    }
+
+    .your-day-text {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 10vh;
+        color: #FA9884;
+    }
+    
+    .productive-text {
+        font-family: 'Borel', cursive;
+        font-size: 10vw;
+        color: #FA9884;
+        padding-top: 20px;
+        height: auto;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        font-family: 'Luckiest Guy', cursive;
+    }
+
+    .content h2 {
+        color: #E74646;
+        font-size: 200px;
+        position: absolute;
+        /* transform: translate(-50%, -50%); */
+        width: auto;
+        height: auto;
+    }
+
+    .price-text {
+        padding: 0;
+    }
+
+    .php-kg-text {
+        font-size: 50px;
+        margin-top: 150px;
     }
 }

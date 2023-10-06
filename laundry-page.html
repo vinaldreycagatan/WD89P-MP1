@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -24,9 +25,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
         <div class="col landing-area">
-            <nav class="row navbar navbar-expand-lg navbar-bg">
+            <nav class="row navbar navbar-expand-lg">
                 <div class="container-fluid nav-container">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         <img src="icons/tsc-logo-no-bg.png" alt="logo-icon" class="brand-logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,72 +42,87 @@
                                 <a class="nav-link" href="#">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="laundry-page.html">LAUNDRY</a>
+                                <a class="nav-link active" href="laundry-page.html">LAUNDRY</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="cafe-page.html">COFFEE</a>
+                                <a class="nav-link" href="cafe-page.html">COFFEE</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">CONTACT US</a>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-secondary">
-                            <p class="btn-book">Book now!</p>
-                        </button>
+                        <div class="btn-div">
+                            <button type="button" class="btn btn-secondary">
+                                <p class="btn-book">Book now!</p>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>
 
-            <div id="carouselExampleIndicators" class="row carousel slide">
-                <ul class="row carousel-indicators">
-                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-                        <img src="images/cafe-menu/espresso.png" alt="epsresso.img">
-                    </li>
-                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
-                        <img src="images/cafe-menu/latte.png" alt="epsresso.img">
-                    </li>
-                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
-                        <img src="images/cafe-menu/cappuccino.png" alt="epsresso.img">
-                    </li>
-                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4">
-                        <img src="images/cafe-menu/americano.png" alt="epsresso.img">
-                    </li>
-                    <li type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5">
-                        <img src="images/cafe-menu/coffee-jelly.png" alt="epsresso.img">
-                    </li>
-                </ul>
-
-                <div class="row carousel-inner">
-                    <div class="row carousel-item active">
-                        <img id="list-item-1" src="images/cafe-menu/espresso.png" alt="espresso-img" class="image-size" href="#list-item-1">
-                        <div class="carousel-caption">
-                            <h5>Espresso</h5>
+            <div class="row card-area">
+                <div class="row for-as-text">For as low as:</div>
+                <div id="carouselLaundry" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <!-- <div class="row"> -->
+                                    <div class="col-lg-8">
+                                        <div class="content">
+                                            <h2 class="price-text">25</h2>
+                                            <h2 class="price-text">25</h2>
+                                        </div>
+                                        <div class="php-kg-text">
+                                            PHP / KG
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 details-area">
+                                        <!-- <div class=""> -->
+                                            <!-- <div class="details-area"> -->
+                                                <p class="items">shirts</p>
+                                                <p class="items">underwear</p>
+                                                <p class="items">delicates</p>
+                                                <p class="items">socks</p>
+                                                <p class="items">tights</p>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!-- <div class="card mb-3"> -->
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="content">
+                                            <h2 class="price-text">50</h2>
+                                            <h2 class="price-text">50</h2>
+                                        </div>
+                                        <div class="php-kg-text">PHP / KG</div>
+                                    </div>
+                                    <div class="col-lg-4 details-area">
+                                        <!-- <div class="card-body"> -->
+                                            <!-- <div class="details-area"> -->
+                                                <p class="items">jackets</p>
+                                                <p class="items">jeans</p>
+                                                <p class="items">towels</p>
+                                                <p class="items">bedsheet</p>
+                                                <p class="items">comforters</p>
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            <!-- </div> -->
                         </div>
                     </div>
-                    <div class="row carousel-item">
-                        <img id="list-item-2" src="images/cafe-menu/latte.png" alt="espresso-img" class="image-size" href="#list-item-2">
-                        <div class="carousel-caption">
-                            <h5>Cafe Latte</h5>
-                        </div>
-                    </div>
-                    <div class="row carousel-item">
-                        <img id="list-item-3" src="images/cafe-menu/cappuccino.png" alt="espresso-img" class="image-size" href="#list-item-3">
-                        <div class="carousel-caption">
-                            <h5>Cappuccino</h5>
-                        </div>
-                    </div>
-                    <div class="row carousel-item">
-                        <img id="list-item-4" src="images/cafe-menu/americano.png" alt="espresso-img" class="image-size" href="#list-item-4">
-                        <div class="carousel-caption">
-                            <h5>Cafe Americano</h5>
-                        </div>
-                    </div>
-                    <div class="row carousel-item">
-                        <img id="list-item-4" src="images/cafe-menu/coffee-jelly.png" alt="espresso-img" class="image-size" href="#list-item-5">
-                        <div class="carousel-caption">
-                            <h5>Coffee Jelly</h5>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselLaundry" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselLaundry" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
