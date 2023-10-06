@@ -53,9 +53,7 @@ p {
     color: #E74646;
 }
 
-.btn-div {
-    /* justify-content: space-around; */
-}
+
 
 .btn-secondary {
     --bs-btn-color: #FFF3E2;
@@ -371,5 +369,18 @@ h5 {
     .php-kg-text {
         font-size: 50px;
         margin-top: 150px;
+    }
+
+    .for-as-text {
+        font-size: 30px;
+        justify-content: center;
+        display: flex;
+        padding: 0;
+    }
+
+    .btn-div {
+        justify-content: center;
+        display: flex;
+        margin-left: 20px;
     }
 }
