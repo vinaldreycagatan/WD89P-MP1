@@ -1,11 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Spinning Cup Laundry</title>
+        
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Bootsrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <div class="col landing-area">
+            <nav class="row navbar navbar-expand-lg navbar-bg">
+                <div class="container-fluid nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="icons/tsc-logo-no-bg.png" alt="logo-icon" class="brand-logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="laundry-page.html">LAUNDRY</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cafe-page.html">COFFEE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CONTACT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-secondary">
+                                    <a href=login-page.html class="btn-book">Book now!</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <div class="container form-container">
+                    <div class="col">
+                        <input type="text" id="emailAddress" class="form-control style-fields" placeholder="Email address"/>
+                        <input type="password" id="password" class="form-control style-fields" placeholder="Password"/>
+                    </div>
+                    <div class="buttons-div">
+                        <button type="button" id="login" class="btn btn-secondary">
+                            <span class="btn-book">Login</span>
+                        </button>
+                        <p class="style-fields">New user? Create account <a href="register-page.html">here</a></p>
+                    </div>
+        </div>
+
+        <script>
+            const loginBtn = document.getElementById('login')
+            loginBtn.onclick = function(){
+                const emailAddress = document.getElementById('emailAddress')
+                const password = document.getElementById('password')
+                fetch('http://localhost:3000/login', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                            emailAddress: emailAddress.value,
+                            password: password.value,
+                    })
+                }).then(function(result){
+                        return result.json()
+                }).then(function(result){
+                    console.log('result: ', result)
+                    if(result.success){
+                        console.log('success login')
+                        alert('success login')
+                    }else{
+                        console.log('invalid credentials')
+                        alert('invalid credentials')
+                    }
+                })
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
 </html>

@@ -1,3 +1,25 @@
+/* register-page styles */
+
+.form-container {
+    margin-top: 50px;
+    width: 350px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.style-fields {
+    font-family: 'Crimson Text', serif;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.buttons-div{
+text-align: center;
+}
+
+
 body {
     background-color: #FFF3E2;
 }
@@ -11,9 +33,9 @@ p {
     /* border: 1px solid black; */
 }
 
-/* .col-lg-4, .col-lg-8 {
-    border: 1px solid red;
-} */
+.enable-borders {
+    border: 1px solid black;
+}
 
 .navbar-collapse {
     justify-content: space-evenly;
@@ -27,16 +49,31 @@ p {
     padding: 0 15vw 0 15vw;
 }
 
+.nav-item {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn-book {
+    /* display: flex; */
     font-family: 'Borel', cursive;
     font-size: 25px;
     padding: 20px 10px 0 10px;
-    width: auto;
-    text-align: center;
+    /* width: auto; */
+    /* text-align: center; */
+
+    /* margin-right: 1.75vw; */
+    /* font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FA9884; */
+    text-decoration: none;
 }
 
 .nav-link {
-    margin-right: 1.75vw;
+    margin: 0 .75vw 0 .75vw;
     font-family: 'Crimson Text', serif;
     font-size: 24px;
     font-weight: 700;
@@ -46,16 +83,16 @@ p {
 
 .navbar-nav {
     --bs-nav-link-hover-color: #E74646;
-    padding-left: 32px;
+    /* padding-left: 32px; */
 }
 
 .nav-link:hover, .navbar-nav .nav-link.active {
     color: #E74646;
 }
 
-
-
 .btn-secondary {
+    padding: 15px 0 0 0;
+    /* margin-right: 1.75vw; */
     --bs-btn-color: #FFF3E2;
     --bs-btn-bg: #E74646;
     --bs-btn-hover-color: #FFF3E2;
@@ -378,11 +415,12 @@ h5 {
         padding: 0;
     }
 
-    .btn-div {
+    /* .btn-div {
         justify-content: center;
-        display: flex;
+        display: block;
         margin-left: 20px;
-    }
+        text-align: center;
+    } */
 
     .details-area {
         margin-top: 20px;

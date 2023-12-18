@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Spinning Cup Laundry</title>
+        
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Bootsrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <div class="col landing-area">
+            <nav class="row navbar navbar-expand-lg navbar-bg">
+                <div class="container-fluid nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="icons/tsc-logo-no-bg.png" alt="logo-icon" class="brand-logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">ABOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="laundry-page.html">LAUNDRY</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cafe-page.html">COFFEE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CONTACT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-secondary">
+                                    <a href=login-page.html class="btn-book">Book now!</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <div class="container form-container">
+            <!-- <form class="form-style"> -->
+                    <!-- <div class="col-lg-2"> -->
+                    <div class="col">
+                        <input type="text" id="firstName" class="form-control style-fields" placeholder="First name"/>
+                        <input type="text" id="lastName" class="form-control style-fields" placeholder="Last name"/>
+                        <input type="text" id="emailAddress" class="form-control style-fields" placeholder="Email address"/>
+                        <input type="text" id="mobileNumber" class="form-control style-fields" placeholder="Mobile number"/>
+                        <input type="password" id="password" class="form-control style-fields" placeholder="Password"/>
+                        <input type="password" id="rePassword" class="form-control style-fields" placeholder="Re-enter password"/>
+                    </div>
+
+                    <div class="buttons-div">
+                        <button id="register" class="btn btn-secondary">
+                            <span class="btn-book">Register</span>
+                        </button>
+                    </div>
+                </div>
+            <!-- </form> -->
+        </div>
+
+        <script>
+            const firstName     = document.getElementById('firstName')
+            const lastName      = document.getElementById('lastName')
+            const emailAddress  = document.getElementById('emailAddress')
+            const mobileNumber  = document.getElementById('mobileNumber')
+            const password      = document.getElementById('password')
+            const rePassword    = document.getElementById('rePassword')
+
+            const registerBtn = document.getElementById('register')
+            registerBtn.onclick = function(){
+                // const firstName     = document.getElementById('firstName')
+                // const lastName      = document.getElementById('lastName')
+                // const emailAddress  = document.getElementById('emailAddress')
+                // const mobileNumber  = document.getElementById('mobileNumber')
+                // const password      = document.getElementById('password')
+                // const rePassword    = document.getElementById('rePassword')
+
+                fetch('http://localhost:3000/check-email', {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        firstName: firstName.value,
+                        lastName: lastName.value,
+                        emailAddress: emailAddress.value,
+                        mobileNumber: mobileNumber.value,
+                        password: password.value,
+                        rePassword: rePassword.value
+                    })
+                }).then(function(result){
+                    return result.json()
+                }).then(function(result){
+                    if(result.found){
+                        return fetch(`http://localhost:3000/register/${result.found}`, {
+                            method: 'post',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                firstName: firstName.value,
+                                lastName: lastName.value,
+                                emailAddress: emailAddress.value,
+                                mobileNumber: mobileNumber.value,
+                                password: password.value,
+                                rePassword: rePassword.value
+                            })
+                        })
+                    } else {
+                        return fetch(`http://localhost:3000/register`, {
+                            method: 'post',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                firstName: firstName.value,
+                                lastName: lastName.value,
+                                emailAddress: emailAddress.value,
+                                mobileNumber: mobileNumber.value,
+                                password: password.value,
+                                rePassword: rePassword.value
+                            })
+                        })
+                    }
+                }).then(function(result){
+                    return result.json()
+                }).then(function(result){
+                    if(result.success){
+                        alert('Registration complete!')
+                    }else{
+                        alert(result.msg)
+                    }
+                })
+            }
+
+                
+        </script>
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    </body>
+</html>
