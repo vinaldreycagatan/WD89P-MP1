@@ -88,48 +88,16 @@
 
             const registerBtn = document.getElementById('register')
             registerBtn.onclick = function(){
-                // const firstName     = document.getElementById('firstName')
-                // const lastName      = document.getElementById('lastName')
-                // const emailAddress  = document.getElementById('emailAddress')
-                // const mobileNumber  = document.getElementById('mobileNumber')
-                // const password      = document.getElementById('password')
-                // const rePassword    = document.getElementById('rePassword')
-
-                fetch('http://localhost:3000/check-email', {
-                    method: 'post',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        firstName: firstName.value,
-                        lastName: lastName.value,
-                        emailAddress: emailAddress.value,
-                        mobileNumber: mobileNumber.value,
-                        password: password.value,
-                        rePassword: rePassword.value
-                    })
-                }).then(function(result){
-                    return result.json()
-                }).then(function(result){
-                    if(result.found){
-                        return fetch(`http://localhost:3000/register/${result.found}`, {
-                            method: 'post',
-                            headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                firstName: firstName.value,
-                                lastName: lastName.value,
-                                emailAddress: emailAddress.value,
-                                mobileNumber: mobileNumber.value,
-                                password: password.value,
-                                rePassword: rePassword.value
-                            })
-                        })
+                if (firstName.value      === "" || lastName.value       === "" ||
+                   emailAddress.value   === "" || mobileNumber.value   === "" ||
+                   password.value       === "" || rePassword.value     === "") {
+                    alert("Some field(s) are missing input.")
+                   }
+                else {
+                    if (password.value !== rePassword.value) {
+                        alert("Passwords do not match.")
                     } else {
-                        return fetch(`http://localhost:3000/register`, {
+                        fetch('http://localhost:3000/check-email', {
                             method: 'post',
                             headers: {
                                 'Accept': 'application/json',
@@ -143,17 +111,53 @@
                                 password: password.value,
                                 rePassword: rePassword.value
                             })
+                        }).then(function(result){
+                            return result.json()
+                        }).then(function(result){
+                            if(result.found){
+                                return fetch(`http://localhost:3000/register/${result.found}`, {
+                                    method: 'post',
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        firstName: firstName.value,
+                                        lastName: lastName.value,
+                                        emailAddress: emailAddress.value,
+                                        mobileNumber: mobileNumber.value,
+                                        password: password.value,
+                                        rePassword: rePassword.value
+                                    })
+                                })
+                            } else {
+                                return fetch(`http://localhost:3000/register`, {
+                                    method: 'post',
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        firstName: firstName.value,
+                                        lastName: lastName.value,
+                                        emailAddress: emailAddress.value,
+                                        mobileNumber: mobileNumber.value,
+                                        password: password.value,
+                                        rePassword: rePassword.value
+                                    })
+                                })
+                            }
+                        }).then(function(result){
+                            return result.json()
+                        }).then(function(result){
+                            if(result.success){
+                                alert('Registration complete!')
+                            }else{
+                                alert(result.msg)
+                            }
                         })
                     }
-                }).then(function(result){
-                    return result.json()
-                }).then(function(result){
-                    if(result.success){
-                        alert('Registration complete!')
-                    }else{
-                        alert(result.msg)
-                    }
-                })
+                }
             }
 
                 

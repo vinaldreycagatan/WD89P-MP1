@@ -33,10 +33,8 @@ app.post('/login', function (req, res) {
             console.log('hashedPassword: ', hashedPassword);
 
             const checkIfPasswordCorrect = bcrypt.compareSync(frontendPassword, hashedPassword);
-
+            console.log(checkIfPasswordCorrect)
             res.send({ "success": checkIfPasswordCorrect })
-        } else {
-            res.send({ "success": false, "error": "invalid credentials" })
         }
     });
 });
@@ -70,44 +68,30 @@ app.post('/register', function (req, res) {
     const frontendMobile = req.body.mobileNumber
     const frontendEmail = req.body.emailAddress
     const frontendPassword = req.body.password
-    const frontendRePassword = req.body.rePassword
+    
+    bcrypt.hash(frontendPassword, 10, function (err, result) {
+        if (err) throw err;
 
-    // need to check if email is already used
-    console.log("Checking email address: ", frontendEmail, " if already used...")
+        console.log("hashed password: ", result);
+        const myQuery = `INSERT INTO first_database.table_users (first_name,
+                                                                    last_name,
+                                                                    email_address,
+                                                                    mobile_number,
+                                                                    password)
+                                                            VALUES ("${frontendFirstName}",
+                                                                    "${frontendLastName}",
+                                                                    "${frontendEmail}",
+                                                                    "${frontendMobile}",
+                                                                    "${result}")`;
 
-    // checking passwords if match
-    console.log("Checking below passwords if matched...")
-    console.log("password: ", frontendPassword)
-    console.log("rePassword: ", frontendRePassword)
-    if(frontendPassword === frontendRePassword) {
-        console.log("Passwords match...")
-        bcrypt.hash(frontendPassword, 10, function (err, result) {
+        connection.query(myQuery, function (err, result) {
             if (err) throw err;
 
-            console.log("hashed password: ", result);
-            const myQuery = `INSERT INTO first_database.table_users (first_name,
-                                                                     last_name,
-                                                                     email_address,
-                                                                     mobile_number,
-                                                                     password)
-                                                             VALUES ("${frontendFirstName}",
-                                                                     "${frontendLastName}",
-                                                                     "${frontendEmail}",
-                                                                     "${frontendMobile}",
-                                                                     "${result}")`;
-
-            connection.query(myQuery, function (err, result) {
-                if (err) throw err;
-
-                console.log("id result from database: ", result);
-            });
+            console.log("id result from database: ", result);
         });
-        res.send({"success": true})
-    }
-    else {
-        console.log("password not same")
-        res.send({"success": false, "msg": "Passwords did not match. Please try again."})
-    }
+    });
+
+    res.send({"success": true})
 });
 
 connection.connect(function(err) {

@@ -75,28 +75,31 @@
             loginBtn.onclick = function(){
                 const emailAddress = document.getElementById('emailAddress')
                 const password = document.getElementById('password')
-                fetch('http://localhost:3000/login', {
-                    method: 'post',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                            emailAddress: emailAddress.value,
-                            password: password.value,
+                
+                if(emailAddress.value === "" || password.value === ""){
+                    alert("Please enter username/password.")
+                } else {
+                    fetch('http://localhost:3000/login', {
+                        method: 'post',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                                emailAddress: emailAddress.value,
+                                password: password.value,
+                        })
+                    }).then(function(result){
+                            return result.json()
+                    }).then(function(result){
+                        console.log('result: ', result)
+                        if(result.success){
+                            alert('Login successful!')
+                        } else {
+                            alert("Incorrect username and/or password.")
+                        }
                     })
-                }).then(function(result){
-                        return result.json()
-                }).then(function(result){
-                    console.log('result: ', result)
-                    if(result.success){
-                        console.log('success login')
-                        alert('success login')
-                    }else{
-                        console.log('invalid credentials')
-                        alert('invalid credentials')
-                    }
-                })
+                }
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
